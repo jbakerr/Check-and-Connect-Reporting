@@ -13,54 +13,53 @@ var student_week_columns = {
 
 
 var report_q1_check_columns = {
-  "Week 1": "B", "Week 2": "F", "Week 3": "J", "Week 4": "N",
-  "Week 5": "R", "Week 6": "V", "Week 7": "Z", "Week 8": "AD",
-  "Week 9": "AH"
+  "Week 1": 1, "Week 2": 5, "Week 3": 9, "Week 4": 13,
+  "Week 5": 17, "Week 6": 21, "Week 7": 25, "Week 8": 29,
+  "Week 9": 33
 }
 
 var report_q1_connect_columns = {
-  "Week 1": "D", "Week 2": "H", "Week 3": "L", "Week 4": "P",
-  "Week 5": "T", "Week 6": "X", "Week 7": "AB", "Week 8": "AF",
-  "Week 9": "AJ"
+  "Week 1": 3, "Week 2": 7, "Week 3": 11, "Week 4": 15,
+  "Week 5": 19, "Week 6": 23, "Week 7": 27, "Week 8": 32,
+  "Week 9": 36
 }
 
 
 var report_q2_check_columns = {
-  "Week 10": "B", "Week 11": "F", "Week 12": "J", "Week 13": "N",
-  "Week 14": "R", "Week 15": "V", "Week 16": "Z", "Week 17": "AD",
-  "Week 18": "AH"
+  "Week 10": 1, "Week 11": 5, "Week 12": 9, "Week 13": 13,
+  "Week 14": 17, "Week 15": 21, "Week 16": 25, "Week 17": 29,
+  "Week 18": 33
 }
 
 var report_q2_connect_columns = {
-  "Week 10": "D", "Week 11": "H", "Week 12": "L", "Week 13": "P",
-  "Week 14": "T", "Week 15": "X", "Week 16": "AB", "Week 17": "AF",
-  "Week 18": "AJ"
+  "Week 10": 3, "Week 11": 7, "Week 12": 11, "Week 13": 15,
+  "Week 14": 19, "Week 15": 23, "Week 16": 27, "Week 17": 32,
+  "Week 18": 36
 }
 
 var report_q3_check_columns = {
-  "Week 19": "B", "Week 20": "F", "Week 21": "J", "Week 22": "N",
-  "Week 23": "R", "Week 24": "V", "Week 25": "Z", "Week 26": "AD",
-  "Week 27": "AH"
+  "Week 19": 1, "Week 20": 5, "Week 21": 9, "Week 22": 13,
+  "Week 23": 17, "Week 24": 21, "Week 25": 25, "Week 26": 29,
+  "Week 27": 33
 }
 
 var report_q3_connect_columns = {
-  "Week 19": "D", "Week 20": "H", "Week 21": "L", "Week 22": "P",
-  "Week 23": "T", "Week 24": "X", "Week 25": "AB", "Week 26": "AF",
-  "Week 27": "AJ"
+  "Week 19": 3, "Week 20": 7, "Week 21": 11, "Week 22": 15,
+  "Week 23": 19, "Week 24": 23, "Week 25": 27, "Week 26": 32,
+  "Week 27": 36
 }
 
 var report_q4_check_columns = {
-  "Week 28": "B", "Week 29": "F", "Week 30": "J", "Week 31": "N",
-  "Week 32": "R", "Week 33": "V", "Week 34": "Z", "Week 35": "AD",
-  "Week 36": "AH"
+  "Week 28": 1, "Week 29": 5, "Week 30": 9, "Week 31": 13,
+  "Week 32": 17, "Week 33": 21, "Week 34": 25, "Week 35": 29,
+  "Week 36": 33
 }
 
 var report_q4_connect_columns = {
-  "Week 28": "D", "Week 29": "H", "Week 30": "L", "Week 31": "P",
-  "Week 32": "T", "Week 33": "X", "Week 34": "AB", "Week 35": "AF",
-  "Week 36": "AJ"
+  "Week 28": 3, "Week 29": 7, "Week 30": 11, "Week 31": 15,
+  "Week 32": 19, "Week 33": 23, "Week 34": 27, "Week 35": 32,
+  "Week 36": 36
 }
-
 
 
 

@@ -1,10 +1,10 @@
-// Determine Quarter To Check and Write To
-function determine_quarter(date, quarter_start_stop){
-  if(Date() <  quarter_start_stop[0][1] && Date() > quarter_start_stop[0][0]){
-    return quarter_start_stop[0]
-  }
+// // Determine Quarter To Check and Write To
+// function determine_quarter(date, quarter_start_stop){
+//   if(Date() <  quarter_start_stop[0][1] && Date() > quarter_start_stop[0][0]){
+//     return quarter_start_stop[0]
+//   }
 
-}
+// }
 
 
 // Returns students' sheets from the school type
@@ -17,10 +17,25 @@ function select_school(school_id){
 
 
 // Selects the report to write data to
-function select_report(){
+function select_report(quarter){
 
   var report = SpreadsheetApp.openById("13uDxiovTTiYLBwb06rmAwuMkiRyIn9AlU90f43qMCBE");
-  var report_sheet = report.getSheets()[0]
+  if(quarter == "Q1"){
+    var report_sheet = report.getSheets()[0]
+  }
+  else if(quarter == "Q2"){
+    var report_sheet = report.getSheets()[1]
+
+  }
+  else if(quarter == "Q3"){
+    var report_sheet = report.getSheets()[2]
+
+  }
+  else if(quarter == "Q4"){
+    var report_sheet = report.getSheets()[3]
+
+  }
+
   return report_sheet
 
 }
@@ -29,13 +44,13 @@ function select_report(){
 
 // Scans each student's sheet to see if all the data is missing in both
 // the check and then the connection rows.
-function missing_data(students, school_type) {
+function missing_data(students, school_type, check_read_range, connect_read_range) {
   var missing_check = []
   var missing_connect = []
 
 // Currently only using 6 studenst CHANGE THIS BEFORE PRODUCTION
   for(i in students.slice(0,6)){
-    var check_range = students[i].getRange("C9:C14");
+    var check_range = students[i].getRange(check_read_range);
     var student_name = students[i].getName();
 
     if (check_range.isBlank()){
@@ -43,7 +58,7 @@ function missing_data(students, school_type) {
 
     }
 
-    var connect_range = students[i].getRange("C17:C26");
+    var connect_range = students[i].getRange(connect_read_range);
 
     if (connect_range.isBlank()){
       missing_connect.push([school_type, student_name]);
@@ -56,11 +71,11 @@ function missing_data(students, school_type) {
   }
 
 // Writes the complete data to the google report sheet
-function write_data(report_sheet, complete_data){
-    var missing_check_range = report_sheet.getRange(3, 1, complete_data[0].length, 2);
+function write_data(report_sheet, complete_data, write_columns){
+    var missing_check_range = report_sheet.getRange(3, write_columns[0], complete_data[0].length, 2);
     missing_check_range.setValues(complete_data[0]);
 
-  var missing_connect_range = report_sheet.getRange(3, 3, complete_data[1].length, 2);
+  var missing_connect_range = report_sheet.getRange(3, write_columns[1], complete_data[1].length, 2);
   missing_connect_range.setValues(complete_data[1]);
 
 }
@@ -127,4 +142,28 @@ function minus_week(week){
     return split_string.join(" ")
 
   }
+}
+
+
+// Determine Write Check and Connect Columns for Report. Returns array.
+// Index 0 is for check index 1 is for connect.
+function determine_write_columns(week, quarter){
+    if(quarter == "Q1"){
+    check_selection = report_q1_check_columns
+    connect_selection = report_q1_connect_columns
+  }
+  else if(quarter == "Q2"){
+    check_selection = report_q2_check_columns
+    connect_selection = report_q2_connect_columns
+  }
+    else if(quarter == "Q3"){
+    check_selection = report_q3_check_columns
+    connect_selection = report_q3_connect_columns
+  }
+    else if(quarter == "Q4"){
+    check_selection = report_q4_check_columns
+    connect_selection = report_q4_connect_columns
+  }
+
+  return [check_selection[week], connect_selection[week]]
 }
