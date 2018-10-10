@@ -7,8 +7,8 @@
 
 function main(){
 
-  var missing_check = [];
-  var missing_connect = [];
+  // var missing_check = [];
+  // var missing_connect = [];
   var complete_data = [[],[]];
 
 
@@ -33,10 +33,10 @@ function main(){
 
     var students = select_school(school_ids[school_type]);
 
-    data = missing_data(students, school_type, check_read_range, connect_read_range);
+    var data = missing_data(students, school_type, check_read_range, connect_read_range);
 
-    var partial_check = data[0];
-    var partial_connect = data[1];
+    var partial_check = remove_duplicates(data[0]);
+    var partial_connect = remove_duplicates(data[1]);
     for(i in partial_check){
       complete_data[0].push(partial_check[i]);
 
@@ -46,5 +46,8 @@ function main(){
       complete_data[1].push(partial_connect[i]);
     }
   }
+
+  Logger.log(partial_check)
+  Logger.log(partial_connect)
   write_data(report_sheet, complete_data, write_columns);
 }

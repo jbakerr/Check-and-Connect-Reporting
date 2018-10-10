@@ -41,6 +41,18 @@ function select_report(quarter){
 }
 
 
+function remove_duplicates(arr){
+   var uniques = [];
+    var itemsFound = {};
+    for(var i = 0, l = arr.length; i < l; i++) {
+        var stringified = JSON.stringify(arr[i]);
+        if(itemsFound[stringified]) { continue; }
+        uniques.push(arr[i]);
+        itemsFound[stringified] = true;
+    }
+    return uniques;
+}
+
 
 // Scans each student's sheet to see if all the data is missing in both
 // the check and then the connection rows.
@@ -50,25 +62,28 @@ function missing_data(students, school_type, check_read_range, connect_read_rang
 
 // Currently only using 6 studenst CHANGE THIS BEFORE PRODUCTION
   for(i in students.slice(0,6)){
+
     var check_range = students[i].getRange(check_read_range);
     var student_name = students[i].getName();
+    var check_data = check_range.getValues();
+    for(j = 0 ; j<check_data.length; j++){
+      if(check_data[j][0].length == 0){
+        missing_check.push([school_type, student_name])
 
-    if (check_range.isBlank()){
-      missing_check.push([school_type, student_name])
-
+      }
     }
 
     var connect_range = students[i].getRange(connect_read_range);
-
-    if (connect_range.isBlank()){
-      missing_connect.push([school_type, student_name]);
-
+    var connect_data = connect_range.getValues();
+    for(j = 0; j < connect_data.length; j++){
+      if(connect_data[j][0].length == 0){
+        missing_connect.push([school_type, student_name])
+      }
     }
-  }
 
+  }
   return [missing_check, missing_connect]
-
-  }
+}
 
 // Writes the complete data to the google report sheet
 function write_data(report_sheet, complete_data, write_columns){
