@@ -22,8 +22,9 @@ function main(){
 
   var write_columns = determine_write_columns(week, quarter);
 
-  var check_read_range = read_column + "9:" + read_column + "14"
-  var connect_read_range = read_column + "17:" + read_column + "26"
+  var check_read_range = read_column + "9:" + read_column + "14";
+  var connect_read_range = read_column + "17";
+  var basic_read_range = read_column + "28:" + read_column + "31";
 
   var report_sheet = select_report(quarter);
 
@@ -36,10 +37,14 @@ function main(){
       var check_range = students[student].getRange(check_read_range);
       var student_name = students[student].getName();
 
-      missing_check_data(missing_check, student_name, check_range, school_type, check_read_range);
+      missing_check_data(missing_check, student_name, check_range, school_type);
 
       var connect_range = students[student].getRange(connect_read_range);
-      missing_connect_data(missing_connect, student_name, connect_range, school_type, connect_read_range)
+      var basic_range = students[student].getRange(basic_read_range);
+
+      missing_connect_data(missing_connect, student_name, connect_range, school_type)
+
+      missing_basic_data(missing_connect, student_name, school_type, basic_range)
 
       }
     }

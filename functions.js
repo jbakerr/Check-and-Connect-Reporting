@@ -56,7 +56,7 @@ function remove_duplicates(arr){
 
 // Scans each student's sheet to see if all the data is missing in both
 // the check and then the connection rows.
-function missing_check_data(missing_check, student_name, check_range, school_type, check_read_range) {
+function missing_check_data(missing_check, student_name, check_range, school_type) {
 
 // Currently only using 6 studenst CHANGE THIS BEFORE PRODUCTION
     var check_data = check_range.getValues();
@@ -67,45 +67,17 @@ function missing_check_data(missing_check, student_name, check_range, school_typ
     }
 }
 
-function missing_connect_data(missing_connect, student_name, connect_range, school_type, connect_read_range) {
-    var coneect_data = connect_range.getValues();
-    for(j = 0 ; j < connect_data.length; j++){
-      if(connect_data[j][0].length == 0){
-        missing_connect.push([school_type, student_name])
-      }
+function missing_connect_data(missing_connect, student_name, connect_range, school_type) {
+    if(connect_range.isBlank()){
+      missing_connect.push([school_type, student_name])
     }
 }
 
-
-
-// function missing_data(student, school_type, check_read_range, connect_read_range) {
-//   var missing_check = []
-//   var missing_connect = []
-
-// // Currently only using 6 studenst CHANGE THIS BEFORE PRODUCTION
-//   for(i in students.slice(0,6)){
-
-//     var check_range = students[i].getRange(check_read_range);
-//     var student_name = students[i].getName();
-//     var check_data = check_range.getValues();
-//     for(j = 0 ; j<check_data.length; j++){
-//       if(check_data[j][0].length == 0){
-//         missing_check.push([school_type, student_name])
-
-//       }
-//     }
-
-//     var connect_range = students[i].getRange(connect_read_range);
-//     var connect_data = connect_range.getValues();
-//     for(j = 0; j < connect_data.length; j++){
-//       if(connect_data[j][0].length == 0){
-//         missing_connect.push([school_type, student_name])
-//       }
-//     }
-
-//   }
-//   return [missing_check, missing_connect]
-// }
+function missing_basic_data(missing_connect, student_name, school_type, basic_range){
+  if( basic_range.isBlank()){
+    missing_connect.push([school_type, student_name])
+  }
+}
 
 
 // Writes the complete data to the google report sheet
