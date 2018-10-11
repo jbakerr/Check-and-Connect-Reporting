@@ -33,18 +33,24 @@ function main(){
 
     var students = select_school(school_ids[school_type]);
 
-    for(var student in students.slice(0,6)){
-      var check_range = students[student].getRange(check_read_range);
-      var student_name = students[student].getName();
 
-      missing_check_data(missing_check, student_name, check_range, school_type);
+    for(var student in students){
+      if(students[student].getName().split(" ").length >= 2){
+        var check_range = students[student].getRange(check_read_range);
+        var student_name = students[student].getName();
 
-      var connect_range = students[student].getRange(connect_read_range);
-      var basic_range = students[student].getRange(basic_read_range);
+        missing_check_data(missing_check, student_name, check_range, school_type);
 
-      missing_connect_data(missing_connect, student_name, connect_range, school_type)
+        var connect_range = students[student].getRange(connect_read_range);
+        var basic_range = students[student].getRange(basic_read_range);
 
-      missing_basic_data(missing_connect, student_name, school_type, basic_range)
+        missing_connect_data(missing_connect, student_name, connect_range, school_type)
+
+        missing_basic_data(missing_connect, student_name, school_type, basic_range)
+      }
+      else{
+        continue
+      }
 
       }
     }
