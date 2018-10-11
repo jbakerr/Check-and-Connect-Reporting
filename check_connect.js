@@ -7,20 +7,20 @@
 
 function main(){
 
+  // setting up variables for script
   var missing_check = [];
   var missing_connect = [];
   var complete_data = [[],[]];
 
-
-  var quarter = determine_quarter(quarter_start_stop);
-
-  var quarter_selection = determine_date_range(quarter);
-
-  var week = minus_week(determine_week(quarter_selection));
+  var week = minus_week(determine_week(week_ranges)); // Returns Week 5, Week 6, Week 7 etc
 
   var read_column = student_week_columns[week];
 
+  var quarter = determine_quarter(week, quarter_start_stop); // returns Q1, Q2..etc
+
   var write_columns = determine_write_columns(week, quarter);
+
+
 
   var check_read_range = read_column + "9:" + read_column + "14";
   var connect_read_range = read_column + "17";

@@ -92,7 +92,18 @@ function write_data(report_sheet, complete_data, write_columns){
 
 
 
-function determine_quarter(quarter_start_stop){
+function determine_quarter(week, quarter_start_stop){
+  for(i in quarter_start_stop){
+
+    if(quarter_start_stop[i].indexOf(week) !== -1){
+      return i;
+    }
+    else{
+      continue;
+    }
+
+  }
+
   if(new Date() <= quarter_start_stop['Q1'][1] && new Date() >= quarter_start_stop['Q1'][0]){
     return "Q1";
   }
@@ -129,12 +140,12 @@ function determine_date_range(quarter){
 
 
 // Determine Week
-function determine_week(quarter_selection){
+function determine_week(week_ranges){
   var date = new Date()
-  for(i in quarter_selection){
+  for(i in week_ranges){
     // console.log(quarter_selection[i])
     // console.log(new Date())
-    if (date <= quarter_selection[i][1]){
+    if (date <= week_ranges[i][1]){
       return(i)
     }
   }

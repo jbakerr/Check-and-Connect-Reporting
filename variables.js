@@ -76,7 +76,7 @@ var school_ids = {
 };
 
 
-var q1_ranges = {
+var week_ranges = {
   "Week 1": [new Date("2018-08-27"),new Date("2018-08-31")],
   "Week 2": [new Date("2018-09-01"),new Date("2018-09-07")],
   "Week 3": [new Date("2018-09-08"),new Date("2018-09-14")],
@@ -85,10 +85,7 @@ var q1_ranges = {
   "Week 6": [new Date("2018-09-29"),new Date("2018-10-05")],
   "Week 7": [new Date("2018-10-06"),new Date("2018-10-12")],
   "Week 8": [new Date("2018-10-13"),new Date("2018-10-19")],
-  "Week 9": [new Date("2018-10-20"),new Date("2018-10-26")]
-};
-
-var q2_ranges = {
+  "Week 9": [new Date("2018-10-20"),new Date("2018-10-26")],
   "Week 10": [new Date("2018-10-30"),new Date("2018-11-02")],
   "Week 11": [new Date("2018-11-05"),new Date("2018-11-09")],
   "Week 12": [new Date("2018-11-13"),new Date("2018-11-16")],
@@ -97,10 +94,7 @@ var q2_ranges = {
   "Week 15": [new Date("2018-12-10"),new Date("2018-12-14")],
   "Week 16": [new Date("2018-12-17"),new Date("2019-01-04")],
   "Week 17": [new Date("2019-01-07"),new Date("2019-01-11")],
-  "Week 18": [new Date("2019-01-14"),new Date("2019-01-17")]
-};
-
-var q3_ranges = {
+  "Week 18": [new Date("2019-01-14"),new Date("2019-01-17")],
   "Week 19": [new Date("2019-01-22"),new Date("2019-01-25")],
   "Week 20": [new Date("2019-01-28"),new Date("2019-02-01")],
   "Week 21": [new Date("2019-02-04"),new Date("2019-02-08")],
@@ -109,10 +103,7 @@ var q3_ranges = {
   "Week 24": [new Date("2019-02-25"),new Date("2019-03-01")],
   "Week 25": [new Date("2019-03-04"),new Date("2019-03-08")],
   "Week 26": [new Date("2019-03-11"),new Date("2019-03-15")],
-  "Week 27": [new Date("2019-03-18"),new Date("2019-03-28")]
-};
-
-var q4_ranges = {
+  "Week 27": [new Date("2019-03-18"),new Date("2019-03-28")],
   "Week 28": [new Date("2019-04-01"),new Date("2019-04-05")],
   "Week 29": [new Date("2019-04-08"),new Date("2019-04-12")],
   "Week 30": [new Date("2019-04-15"),new Date("2019-04-18")],
@@ -122,15 +113,18 @@ var q4_ranges = {
   "Week 34": [new Date("2019-05-20"),new Date("2019-05-24")],
   "Week 35": [new Date("2019-05-28"),new Date("2019-05-31")],
   "Week 36": [new Date("2019-06-03"),new Date("2019-06-07")]
-
 };
 
 
 var quarter_start_stop = {
-  "Q1": [new Date("2018-08-27"),new Date("2018-10-26")],
-  "Q2": [new Date("2018-10-27"),new Date("2019-01-17")],
-  "Q3": [new Date("2019-01-18"),new Date("2019-03-28")],
-  "Q4": [new Date("2019-03-29"),new Date("2019-06-07")]
+  "Q1": ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6",
+         "Week 7", "Week 8", "Week 9"],
+  "Q2": ["Week 10", "Week 11", "Week 12", "Week 13", "Week 14", "Week 15",
+         "Week 16", "Week 17", "Week 18"],
+  "Q3": ["Week 19", "Week 20", "Week 21", "Week 22", "Week 23", "Week 24",
+         "Week 25", "Week 26", "Week 27"],
+  "Q4": ["Week 28", "Week 29", "Week 30", "Week 31", "Week 32", "Week 33",
+         "Week 34", "Week 35", "Week 36"],
 }
 
 
