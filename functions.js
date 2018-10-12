@@ -58,7 +58,6 @@ function remove_duplicates(arr){
 // the check and then the connection rows.
 function missing_check_data(missing_check, student_name, check_range, school_type) {
 
-// Currently only using 6 studenst CHANGE THIS BEFORE PRODUCTION
     var check_data = check_range.getValues();
     for(j = 0 ; j<check_data.length; j++){
       if(check_data[j][0].length == 0){
@@ -188,3 +187,28 @@ function determine_write_columns(week, quarter){
 
   return [check_selection[week], connect_selection[week]]
 }
+
+
+function compose_message(complete_data){
+  var intro = 'The following students did not have complete check or connect data entered on time: '
+  var check_table = '<br><br><table style = "display: inline-block; border-collapse:collapse;" border = 1 cellpadding = 5><tr><th>School Type</th><th>Name</th></tr>'
+  var connect_table = '<table style = "display: inline-block; border-collapse:collapse;" border = 1 cellpadding = 5><tr><th>School Type</th><th>Name</th></tr>'
+
+ for(var c=0;c<complete_data[0].length;c++){
+    check_table+='<tr><td>'+complete_data[0][c][0]+'</td>'+ '<td>'+ complete_data[0][c][1]+'</td>'
+  }
+
+  check_table += '</table>'
+
+  for(var b=0; b<complete_data[1].length;b++){
+    connect_table +='<td>'+complete_data[1][b][0]+'</td>'+ '<td>'+ complete_data[1][b][1]+'</td></tr>'
+  }
+
+  connect_table += '</table>'
+
+var message = intro + check_table + connect_table;
+return message;
+
+}
+
+

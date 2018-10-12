@@ -20,8 +20,6 @@ function main(){
 
   var write_columns = determine_write_columns(week, quarter);
 
-
-
   var check_read_range = read_column + "9:" + read_column + "14";
   var connect_read_range = read_column + "17";
   var basic_read_range = read_column + "28:" + read_column + "31";
@@ -34,7 +32,7 @@ function main(){
     var students = select_school(school_ids[school_type]);
 
 
-    for(var student in students){
+    for(var student in students.slice(0,6)){
       if(students[student].getName().split(" ").length >= 2){
         var check_range = students[student].getRange(check_read_range);
         var student_name = students[student].getName();
@@ -57,17 +55,17 @@ function main(){
 
     var clean_check = remove_duplicates(missing_check);
     var clean_connect = remove_duplicates(missing_connect);
-    Logger.log(clean_check)
-    Logger.log(clean_connect)
+
 
     for(i in clean_check){
       complete_data[0].push(clean_check[i]);
-
     }
-
     for(i in clean_connect){
       complete_data[1].push(clean_connect[i]);
     }
+  var message = compose_message(complete_data);
+
+  MailApp.sendEmail("bakerrenneckar@gmail.com",'test html', message,{'htmlBody':message});
 
   write_data(report_sheet, complete_data, write_columns);
 }
