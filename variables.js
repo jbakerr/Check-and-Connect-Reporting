@@ -67,11 +67,20 @@ var report_q4_connect_columns = {
 // Select Active Sheet and Define School Name Type
   // ALL IDs are for Test Data
 
+// var school_ids = {
+//   "Primary": "1AYzmnaBgflGrDkFSAlwRkfuUne0sQgwRx9rbIJOSzJQ"
+//   // "High": "1ZzfDPoHzMDYGIlhwzMDQ_gzNTnYY9DaAGT6aLYTyOC8",
+//   // "Middle": "1uw0P8ain1GkMvj-NFTH3_11egvO4wTZS8OMqQj5J1dI",
+//   // "Liberty": "1k6ULO-SCHU5D11gcyCWn6F_vjGz65pODQoRotokCiro"
+
+// };
+
+// REAL IDS
 var school_ids = {
-  "Primary": "1AYzmnaBgflGrDkFSAlwRkfuUne0sQgwRx9rbIJOSzJQ",
-  "High": "1ZzfDPoHzMDYGIlhwzMDQ_gzNTnYY9DaAGT6aLYTyOC8",
-  "Middle": "1uw0P8ain1GkMvj-NFTH3_11egvO4wTZS8OMqQj5J1dI",
-  "Liberty": "1k6ULO-SCHU5D11gcyCWn6F_vjGz65pODQoRotokCiro"
+  "Primary": "1BUvl4r_GtpluW7tQ6IUNGcTAMnbT1Bp4hqzhMPFiQlI",
+  "High": "1dnJKw30m7S7QlxosFrNXtCGwr9BMD2F28rMmEdKx0j0",
+  "Middle": "1L54RdMHGIq7CN9-tteinMssddGLdRhYDMELCGMFmSS0",
+  "Liberty": "1u1CwNLcbvBuuqO3TV3WegV_NFQHRPPibsYXyrZhbvkU"
 
 };
 
