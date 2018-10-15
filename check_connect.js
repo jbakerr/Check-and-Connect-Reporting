@@ -1,10 +1,3 @@
-// TO DO
-
-// Functions:
-// Determine start week - both for writing and reading
-// Based on start week, select quarter for writing.
-
-
 function main(){
 
   // setting up variables for script
@@ -32,7 +25,7 @@ function main(){
     var students = select_school(school_ids[school_type]);
 
 
-    for(var student in students.slice(0,6)){
+    for(var student in students){
       if(students[student].getName().split(" ").length >= 2){
         var check_range = students[student].getRange(check_read_range);
         var student_name = students[student].getName();
@@ -63,9 +56,11 @@ function main(){
     for(i in clean_connect){
       complete_data[1].push(clean_connect[i]);
     }
-  var message = compose_message(complete_data);
+  var message = compose_message(complete_data, week);
 
-  MailApp.sendEmail("bakerrenneckar@gmail.com",'test html', message,{'htmlBody':message});
+  subject = "Check and Connect Report for " + week
+
+  MailApp.sendEmail("bakerrenneckar@gmail.com",subject, message,{'htmlBody':message});
 
   write_data(report_sheet, complete_data, write_columns);
 }
