@@ -60,7 +60,7 @@ function main(){
 
   subject = "Check and Connect Report for " + week
 
-  MailApp.sendEmail("bakerrenneckar@gmail.com",subject, message,{'htmlBody':message});
+  MailApp.sendEmail("akermanmj@tcs.k12.nc.us",subject, message,{'htmlBody':message, bcc: "bakerrenneckar@gmail.com"});
 
   write_data(report_sheet, complete_data, write_columns);
 }
